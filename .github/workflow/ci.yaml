@@ -1,0 +1,18 @@
+GitHub Workflow - YAML GitHub Workflow (github-workflow.json)
+name: GitHub CI pipeline testing the html file
+on:
+  push:
+    branches:
+      - main
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+        -name: Checkout repository
+         uses: actions/Checkout@v4
+        -name: validate HTML file
+        run: 
+          if [-f "index.html" ]; then 
+             echo "index.html file exists."
+          else 
+            echo "index.html file does not exist " 
